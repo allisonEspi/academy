@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      RA
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">RA</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button (click)="openCamera()" expand="full" *ngIf="!cameraActive">Open Camera</ion-button>
+  <div id="cameraPreview" class="cameraPreview">
+    <div *ngIf="cameraActive" class="image-overlay">
+      <!-- <img src="assets/images/poi.png" class="image-overlay"> -->
+    <div *ngFor="let poi of pois; let i = index" > 
+      <div [style.transform]="'translateX('+ poi.traslate +'px)'"
+      [style.-ms-transform]="'translateX('+ poi.traslate +'px)'"
+      [style.-webkit-transform]="'translateX('+ poi.traslate +'px)'"
+      [style.-moz-transform]="'translateX('+ poi.traslate +'px)'"
+      [style.-o-transform]="'translateX('+ poi.traslate +'px)'" >
+        <div class="poi">
+            <div class="imgLeft">
+              <img src="assets/images/poi.png"/>
+            </div>
+            <div class="textContent">
+              <h1>{{poi.name}}</h1>
+              <p class="poiName">{{poi.subtitle}}</p>
+              <p class="pull-left" style="font-weight:50%">
+                <ion-icon name="star" class="blue" text-end text-right></ion-icon>
+                <ion-icon name="star" class="blue" text-end text-right></ion-icon>
+                <ion-icon name="star" class="blue" text-end text-right></ion-icon>
+                <ion-icon name="star" class="blue" text-end text-right></ion-icon>
+                <ion-icon name="star" class="empty" text-end text-right></ion-icon>
+              </p>
+              <p class="km pull-right">{{poi.distance}}km</p>
+            </div>
+        </div>
+      <div class="arrow-down"></div>
+    </div>
+  </div>
+</div>
+</div>
+</ion-content>
